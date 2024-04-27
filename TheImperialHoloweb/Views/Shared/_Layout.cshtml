@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TheImperialHoloweb</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TheImperialHoloweb.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div id='navbar-container'>
+        <div class='nav'>
+            <a href='/'>Home</a>
+            <a href='./news'>News</a>
+            <div class='dropdown'>
+                <button class='dropbtn'>Military</button>
+                <div class='dropdown-content'>
+                    <div class='dropdown-content-wrap'>
+                        <a href='./enlist'>Enlist</a>
+                        <a href='./militaryabout'>About</a>
+                        <a href='./militaryoccupations'>Occupations</a>
+                        <a href='./militaryapplications'>Applications</a>
+                        <a href='./militaryweapons'>Weapons &amp; Power</a>
+                    </div>
+                </div>
+            </div>
+            <div class='dropdown'>
+                <button class='dropbtn'>Galactic Network</button>
+                <div class='dropdown-content'>
+                    <a href='./gnabout'>About</a>
+                    <a href='./gngalaxymap'>Galaxy Map</a>
+                    <a href='./gnhistory'>Historical Archives</a>
+                    <a href='./gngovt'>Government</a>
+                    <a href='./gnmarket'>Galactic Market</a>
+                </div>
+            </div>
+            <div class='dropdown'>
+                <button class='dropbtn'>Law &amp; Order</button>
+                <div class='dropdown-content'>
+                    <a href='./lorebels'>Enemies &amp; Terrorists</a>
+                    <a href='./lobounty'>Bounty Board</a>
+                    <a href='./locode'>Imperial Code</a>
+                    <a href='./loextra'>Extra</a>
+                </div>
+            </div>
+            <a href='./store'>Store</a>
+        </div>
+    </div>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div id='footer-container'>
+            <div class='nav-container'>
+                <nav class='nav-footer'>
+                    <a href='./footerteam'>Leadership</a>
+                    <a href='./footercareer'>Non-Military Career</a>
+                    <a href='./footersupport'>Support</a>
+                    <a href='./footercontact'>Contact</a>
+                </nav>
+            </div>
+
+            @*<div class='nav-container'>
+                <nav class='nav-footer'>
+                    <div>
+                        <a href='./footercareer'>Non-Military Career</a>
+                    </div>
+                    <div class='footer-links'>
+                        <a href='./footersupport'>Support</a>
+                    </div>
+                    <div class='footer-links'>
+                        <a href='./footercontact'>Contact</a>
+                    </div>
+                </nav>
+            </div>*@
+
+            @*<div class='nav-container'>
+                <div class='nav-table'>
+                    <ul id='horizontal-list'>
+                        <li><a href='./footercareer'>Non-Military Career</a></li>
+                        <li><a href='./footersupport'>Support</a></li>
+                        <li><a href='./footercontact'>Contact</a></li>
+                    </ul>
+                </div>
+            </div> *@
+
+            <div class='project-notes'>
+                <em>
+                    This is a .NETCore MVC Web application for a Star Wars inspired fan project. The project is based on the concept of the Galactic Empire having a website like any goverment
+                    or company would have. The styling, design, content, and bias are in favor of an imperial web developer. ~ Mark Roenfeldt
+                </em>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

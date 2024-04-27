@@ -1,0 +1,116 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class='home-container'>
+    <div class='top-container'>
+        <img class='top-container-img' src='./images/mainpageBG.jpg' alt='mainpageBG' />
+        <div class='quote-container'>
+            <p class='quote' cite='https://starwars.fandom.com/wiki/Declaration_of_a_New_Order'>
+                The New Order of peace has triumphed over the shadowy secrecy of shameful magicians. The direction
+                of our course is clear. I will lead the Empire to glories beyond imagining. We have been tested,
+                but we have emerged stronger. We move forward as one people: the Imperial citizens of the first
+                Galactic Empire. We will prevail. Ten thousand years of peace begins today.
+            </p>
+            <p class='quote-cite'>- Emperor Palpatine</p>
+        </div>
+    </div>
+
+    @*Top News *@
+    <div id='top-news'>
+        <div class='row'>
+            <div class='column'>
+                <div class='col-title'>Title of News Article</div>
+                <img class='col-img' src='./images/News/NewsImageTemplate.jpg' />
+                <div class='col-text'>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+            </div>
+            <div class='column'>
+                <div class='col-title'>Title of News Article</div>
+                <img class='col-img' src='./images/News/NewsImageTemplate.jpg' />
+                <div class='col-text'>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+            </div>
+            <div class='column'>
+                <div class='col-title'>Title of News Article</div>
+                <img class='col-img' src='./images/News/NewsImageTemplate.jpg' />
+                <div class='col-text'>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+            </div>
+            <div class='column'>
+                <div class='col-title'>Title of News Article</div>
+                <img class='col-img' src='./images/News/NewsImageTemplate.jpg' />
+                <div class='col-text'>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id='enlist'>
+        @*Enlist*@
+        <div class='enlist-left'>
+            <img class='enlist-img' src='./images/enlist2.jpg' alt=''></img>
+        </div>
+        <div class='enlist-center'>
+            <div class='enlist-content'>
+                <h1>Enlist</h1>
+                <p class='enlist-text'>
+                    Ready to join the greatest military the galaxy has ever known? Click on the
+                    button to begin your application for the best military experience in existence!
+                </p>
+                <button type='button' class='button'>Start your Application</button>
+                @*<form>
+                    <label for='firstName' class='label-enlist'>First Name:</label>
+                    <input type='text' name='firstName' class='input-enlist'></input><br />
+                    <label for='firstName' class='label-enlist'>Last Name:</label>
+                    <input type='text' name='firstName' class='input-enlist'></input><br />
+                    <label for='firstName' class='label-enlist'>Email:</label>
+                    <input type='text' name='firstName' class='input-enlist'></input><br />
+                    <label for='firstName' class='label-enlist'>Phone:</label>
+                    <input type='text' name='firstName' class='input-enlist'></input><br />
+                    <input type="submit" value="Submit">Submit Application</input>
+                </form>*@
+            </div>
+        </div>
+        <div class='enlist-right'>
+            <img class='enlist-img-right' src='./images/enlist1.jpg' alt=''></img>
+        </div>
+    </div>
+
+    <div id='report'>
+        <div class='report-left'>
+            <img class='report-img' src='./images/banner3.jpg' alt='Imperial Banner'></img>
+        </div>
+        <div class='report-center-img'>
+            <img class='report-img sedition-img' src='./images/reportsedition.jpg' alt=''></img>
+        </div>
+        <div class='report-center-content'>
+            <p class='report-text'>
+                Ensure the streets of your city remain safe from crime and rebel
+                terrorists. Report any and all suspicious activity simply by clicking the button below and
+                make your Emperor proud!
+            </p>
+            <button type='button' class='button'>Report</button>
+        </div>
+
+        <div class='report-right'>
+            <img class='report-img' src='./images/banner3.jpg' alt='Imperial Banner'></img>
+        </div>
+    </div>
+</div>
