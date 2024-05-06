@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id='navbar-container'>
-        <div class='nav'>
+        <div class='navbar'>
             <a href='/'>Home</a>
             <a href='./news'>News</a>
             <div class='dropdown'>
@@ -47,55 +47,24 @@
             <a href='./store'>Store</a>
         </div>
     </div>
-    <div class="container">
+    <div> @*class="container"*@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div id='footer-container'>
-            <div class='nav-container'>
-                <nav class='nav-footer'>
-                    <a href='./footerteam'>Leadership</a>
-                    <a href='./footercareer'>Non-Military Career</a>
-                    <a href='./footersupport'>Support</a>
-                    <a href='./footercontact'>Contact</a>
-                </nav>
-            </div>
-
-            @*<div class='nav-container'>
-                <nav class='nav-footer'>
-                    <div>
-                        <a href='./footercareer'>Non-Military Career</a>
-                    </div>
-                    <div class='footer-links'>
-                        <a href='./footersupport'>Support</a>
-                    </div>
-                    <div class='footer-links'>
-                        <a href='./footercontact'>Contact</a>
-                    </div>
-                </nav>
-            </div>*@
-
-            @*<div class='nav-container'>
-                <div class='nav-table'>
-                    <ul id='horizontal-list'>
-                        <li><a href='./footercareer'>Non-Military Career</a></li>
-                        <li><a href='./footersupport'>Support</a></li>
-                        <li><a href='./footercontact'>Contact</a></li>
-                    </ul>
-                </div>
-            </div> *@
-
-            <div class='project-notes'>
-                <em>
-                    This is a .NETCore MVC Web application for a Star Wars inspired fan project. The project is based on the concept of the Galactic Empire having a website like any goverment
-                    or company would have. The styling, design, content, and bias are in favor of an imperial web developer. ~ Mark Roenfeldt
-                </em>
-            </div>
+    <div id='footer-container'>
+        <nav class='nav-footer'>
+            <a href='./footerteam'>Leadership</a>
+            <a href='./footercareer'>Non-Military Career</a>
+            <a href='./footersupport'>Support</a>
+            <a href='./footercontact'>Contact</a>
+        </nav>
+        <div class="project-notes">
+            This is a .NETCore MVC Web application for a Star Wars inspired fan project. The project is based on the concept of the Galactic Empire having a website like any goverment
+            or company would have. The styling, design, content, and bias are in favor of an imperial web developer. ~ Mark Roenfeldt
         </div>
-    </footer>
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
