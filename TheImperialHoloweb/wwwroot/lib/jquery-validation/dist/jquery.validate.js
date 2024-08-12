@@ -1029,7 +1029,7 @@ $.extend( $.validator, {
 		// meta-characters that should be escaped in order to be used with JQuery
 		// as a literal part of a name/id or any selector.
 		escapeCssMeta: function( string ) {
-			return string.replace( /([\\!"#$%&'()*+,./:;<=>?@\[\]^`{|}~])/g, "\\$1" );
+			return string.replace( /([\\!"#$%&'()*+,~/:;<=>?@\[\]^`{|}~])/g, "\\$1" );
 		},
 
 		idOrName: function( element ) {
@@ -1158,11 +1158,11 @@ $.extend( $.validator, {
 		creditcard: { creditcard: true }
 	},
 
-	addClassRules: function( className, rules ) {
-		if ( className.constructor === String ) {
-			this.classRuleSettings[ className ] = rules;
+	addClassRules: function( class, rules ) {
+		if ( class.constructor === String ) {
+			this.classRuleSettings[ class ] = rules;
 		} else {
-			$.extend( this.classRuleSettings, className );
+			$.extend( this.classRuleSettings, class );
 		}
 	},
 

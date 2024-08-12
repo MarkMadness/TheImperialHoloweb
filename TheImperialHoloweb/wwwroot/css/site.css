@@ -1,25 +1,22 @@
 html {
-  font-size: 14px;
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+    font-size: 14px;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-  margin: 0;
-}
+    @media (min-width: 768px) {
+        html {
+            font-size: 16px;
+        }
+    }
 
 body {
     background-color: black;
     color: white;
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
-    margin-bottom: 60px;
+    /*margin-bottom: 60px;*/ /*I commented this out becuase of margin bottom on index page, may affect other pages.*/
 }
 
 .top-container {
@@ -57,6 +54,7 @@ p.quote-cite {
     margin: 0;
 }
 
+/* Home */
 /*===============News===============*/
 
 #top-news {
@@ -70,29 +68,29 @@ p.quote-cite {
     padding: 5px;
 }
 
-.column {
-    background-color: red;
-    height: 480px;
-    width: 450px;
-    margin: 5px 10px 5px 10px;
-    float: left;
-}
+    .column {
+        background-color: red;
+        height: 480px;
+        width: 450px;
+        margin: 5px 10px 5px 10px;
+        float: left;
+    }
 
-.col-title {
-    font-size: 26pt;
-    font-weight: 700;
-    padding: 10px 0 10px 0;
-}
+        .col-title {
+            font-size: 26pt;
+            font-weight: 700;
+            padding: 10px 0 10px 0;
+        }
 
-.col-img {
-    width: 400px;
-    height: 280px;
-}
+        .col-img {
+            width: 400px;
+            height: 280px;
+        }
 
-.col-text {
-    font-size: 16pt;
-    padding: 0 10px 0 10px;
-}
+        .col-text {
+            font-size: 16pt;
+            padding: 0 10px 0 10px;
+        }
 
 /*===============Enlist===============*/
 
@@ -231,6 +229,7 @@ p.quote-cite {
     padding: 10px;
     top: 5px;
     border-bottom: 1px solid white;
+    height: 91px;
 }
 
 a {
@@ -239,7 +238,6 @@ a {
     text-align: center;
     text-decoration: none;
     color: white;
-    height: 65px;
 }
 
 .dropdown {
@@ -261,15 +259,16 @@ a {
     display: none;
     float: left;
     position: absolute;
-    width: 700px;
-    right: -270px;
+    width: 1000px;
+    right: -470px;
+    padding-top: 150px;
 }
 
-.dropdown-content-wrap {
-    top: 45px;
-    padding: 6px;
-    background-color: pink;
-}
+    .dropdown-content-wrap {
+        top: 70px;
+        padding: 6px;
+        background-color: rgba(0,0,0,0.75);
+    }
 
 a:hover, .dropbtn:hover {
     text-shadow: 5px black;
@@ -279,7 +278,7 @@ a:hover, .dropbtn:hover {
 }
 
 a:hover {
-    height: 65px;
+    color: white;
 }
 
 .dropdown:hover .dropdown-content {
@@ -293,26 +292,265 @@ a:hover {
 /*FOOTER*/
 
 #footer-container {
-    height: 220px;
+    /*height: 220px;*/
     width: 100%;
-    background-color: rgb(34, 34, 34);
-    border-top: 10px solid black;
+    font-family: Arial;
+    font-size: 14pt;
+    /*position: absolute;*/
+    z-index: 10;
     margin: 0;
-
-    position: absolute;
     bottom: 0;
+    background-color: rgb(34, 34, 34);
+    /*border-top: 10px solid black;*/
+    line-height: 1.5;
     white-space: nowrap;
-    line-height: 0px;
 }
 
 .nav-footer {
-    margin: 60px 20px 60px;
-    font-size: 18pt;
+    margin: 40px 20px 40px;
+    font-size: 12pt;
     display: inline-block;
+    opacity: 0.5;
 }
 
+    .nav-footer a:hover{
+        padding: 5px 18px;
+    }
+
 .project-notes {
-    padding: 10px;
+    padding: 0 20px 40px 20px;
+    font-size: 14pt;
+    text-align: center;
+    width: 80%;
     word-wrap: break-word;
-    width: 90%;
+    text-wrap: wrap;
+    font-style: italic;
+    margin: 0 auto;
+}
+
+/* Military */
+/*html {
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body {*/
+    /* background-color: rgb(71, 71, 71); */
+    /*background-color: rgb(34, 34, 34);
+    color: white;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}*/
+
+#header-section {
+    color: white;
+    /* margin-top: 160px; */
+    padding: 100px 0 20px 0;
+    background-color: rgb(71, 71, 71);
+}
+
+.header-header {
+    font-size: 50pt;
+    font-weight: 800;
+}
+
+.header-text {
+    font-size: 25pt;
+}
+
+#buttons-section {
+    position: sticky;
+    top: 0;
+    padding: 20px;
+    background-color: rgba(39, 39, 39, 0.7);
+}
+
+.button {
+    font-size: 20pt;
+    padding: 10px 20px 10px 20px;
+    border: 4px solid rgb(90, 90, 90);
+    border-radius: 20px;
+    color: black;
+    background-color: rgb(246, 246, 246);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+    .button:hover, .active {
+        background-color: rgb(255, 81, 0);
+    }
+
+    .button:hover {
+        cursor: pointer;
+    }
+
+.occupation-container {
+}
+
+.section {
+}
+
+/* .top-section, .army_navy-section, .army_navy_intelligence-section, .stormtrooper-section, .special-section {
+        opacity: 0;
+    } */
+
+.active {
+    /*opacity: 100;*/
+}
+
+.occ-title {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.occ-title-single {
+    display: flex;
+    justify-content: center;
+    flex-direction: column
+}
+
+    .occ-title h1, .occ-title-single h1 {
+        margin: 0 300px 0 300px;
+        font-size: 30pt;
+        font-weight: 800;
+    }
+
+    .occ-title-single h2 {
+        margin: 0;
+        font-size: 20pt;
+    }
+
+.occ-bodies {
+    display: flex;
+    float: center;
+}
+
+.occ-body {
+    display: flex;
+    height: 600px;
+    width: 860px;
+    background-color: rgb(71, 71, 71);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 10px solid rgba(0, 0, 0, 0.7);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.occ-image {
+    height: 600px;
+    width: 460px;
+    overflow: hidden;
+    border-right: 6px solid rgba(0, 0, 0, 0.7);
+}
+
+    .occ-image img {
+        height: 600px;
+        width: 460px;
+    }
+
+.occ-text {
+    width: 400px;
+    padding: 40px;
+}
+
+    .occ-text table {
+        height: 100px;
+        background-color: rgb(136, 136, 136);
+        border-spacing: 5px;
+    }
+
+        .occ-text table td {
+            width: 40px;
+        }
+
+        .occ-text table .img img {
+            width: 98px;
+            height: 94px;
+        }
+
+        .occ-text table .empty {
+            background-color: black;
+        }
+
+        .occ-text table .blue {
+            background-color: blue;
+        }
+
+        .occ-text table .red {
+            background-color: red;
+        }
+
+        .occ-text table .yellow {
+            background-color: yellow;
+        }
+
+        .occ-text table .gray {
+            background-color: rgb(65, 65, 65);
+        }
+
+        .occ-text table .silver {
+            background-color: silver;
+        }
+
+    .occ-text h1 {
+        font-size: 30pt;
+        text-decoration: underline;
+    }
+
+    .occ-text p {
+        font-size: 20pt;
+    }
+
+.horizontal-line {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 5px solid white;
+}
+
+/* Galactic Network */
+
+
+
+/* Law & Order */
+.bounty-board-message {
+    font-size: 18pt;
+}
+
+#bounty-board {
+    display: grid;
+    margin-left: 100px;
+    margin-right: auto;
+    grid-template-columns: repeat(7, 200px);
+    column-gap: 50px;
+    row-gap: 50px;
+    justify-items: center; /* centers the grid */
+}
+
+.bounty-container {
+    margin: 0;
+    height: 400px;
+    width: 200px;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-container {
+    margin: 0;
+}
+
+.reward {
+    background-color: grey;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.description {
+    justify-content: center;
+    color: black;
 }

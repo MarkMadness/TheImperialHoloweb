@@ -18,7 +18,7 @@ namespace TheImperialHoloweb.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Store()
         {
             return View();
         }
