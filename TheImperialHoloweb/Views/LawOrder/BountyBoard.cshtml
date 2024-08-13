@@ -1,13 +1,10 @@
-﻿<h1>Law &amp; Order</h1>
-<h2>Bounty Board</h2>
-
-<div class='bounty-board-message'>
-    <p>
-        Listed below are all bounties on criminals, traitors, and rebel terrorists. Turn them
-        into the Imperial authorities and the Empire will reward you greatly!
-    </p>
+﻿<div id='header-section'>
+    <h1 class='imp-header'>Bounty Board</h1>
+    <p class='imp-header-text'>Listed below are all bounties on criminals, traitors, and rebel terrorists. Turn them 
+        into the Imperial authorities and the Empire will reward you greatly!</p>
 </div>
 
 <div id='bounty-board'>
-    @*Bounty partial view*@
+    @*Bounty partial views here*@
+    @Html.Partial("PartialViews/Bounty")
 </div>

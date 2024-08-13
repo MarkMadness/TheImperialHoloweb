@@ -1,0 +1,14 @@
+﻿:root{
+    /*imperial color palette here*/
+}
+
+.imp-header {
+    font-size: 50pt;
+    font-weight: 800;
+    text-align: center;
+}
+
+    .imp-header-text {
+        font-size: 25pt;
+        text-align: center;
+    }
