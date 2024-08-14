@@ -1,0 +1,13 @@
+﻿@model TheImperialHoloweb.Models.LawOrder.Bounty
+
+<div class='bounty-container'>
+    <div class='image-container'>
+        <img src="@Url.Content("~/images/Bounties/" + Model.Image + ".png")" alt="Bounty Image" style="max-width:200px;" />
+    </div>
+    <div class='reward'>
+        <p>@Model.PriceOfBounty.ToString("C2")</p>
+    </div>
+    <div class='description'>
+        <p>@Model.Description</p>
+    </div>
+</div>
