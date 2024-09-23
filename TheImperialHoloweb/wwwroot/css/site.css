@@ -450,7 +450,8 @@ body {*/
     .occ-text table {
         height: 100px;
         background-color: rgb(136, 136, 136);
-        border-spacing: 5px;
+        border-spacing: 3px;
+        border-collapse: separate;
     }
 
         .occ-text table td {
