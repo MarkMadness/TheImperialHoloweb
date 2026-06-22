@@ -47,22 +47,13 @@
 </div>
 
 <div id='buttons-section'>
-    <a class='button active' href='#header-section'>Top</a>
-    <a class='button' href='#navy-army'>Navy &amp; Army</a>
-    <a class='button' href='#navy-army-intelligence'>Navy &amp; Army Intelligence</a>
-    <a class='button' href='#ancillary_branch'>Ancillary Branch</a>
-    <a class='button' href='#stormtroopers'>Stormtroopers</a>
-    <a class='button' href='#special'>Special</a>
+    <button class='button active' onclick="showSection('top-section', this)">Top</button>
+    <button class='button' onclick="showSection('army_navy-section', this)">Navy &amp; Army</button>
+    <button class='button' onclick="showSection('army_navy_intelligence-section', this)">Navy &amp; Army Intelligence</button>
+    <button class='button' onclick="showSection('ancillary_branch-section', this)">Ancillary Branch</button>
+    <button class='button' onclick="showSection('stormtrooper-section', this)">Stormtroopers</button>
+    <button class='button' onclick="showSection('special-section', this)">Special</button>
 </div>
-
-@*onClick={()=>this.displayBranch()}
-onClick='displayBranch("top-section")'
-onClick='displayBranch("army_navy-section")'
-onClick='displayBranch("army_navy_intelligence-section")'
-onClick='displayBranch("ancillary_branch")'
-onClick='displayBranch("stormtrooper-section")'
-onClick='displayBranch("special-section")'*@
-
 
 @*Start of the Ranks listings*@
 <div class='occupation-container'>
@@ -490,7 +481,7 @@ onClick='displayBranch("special-section")'*@
         </div>
     </div>
     @*Army & Navy Section*@
-    <div id='army_navy-section' class='section'>
+    <div id='army_navy-section' class='section' style='display:none'>
         <div class='occ-title' id='navy-army'>
             <h1>Imperial Navy</h1>
             <h1>Imperial Army</h1>
@@ -1269,7 +1260,7 @@ onClick='displayBranch("special-section")'*@
         </div>
     </div>
     @*Army & Navy Intelligence Section*@
-    <div id='army_navy_intelligence-section' class='section'>
+    <div id='army_navy_intelligence-section' class='section' style='display:none'>
         <div class='occ-title' id='navy-army-intelligence'>
             <h1>Imperial Navy Intelligence</h1>
             <h1>Imperial Army Intelligence</h1>
@@ -2021,10 +2012,10 @@ onClick='displayBranch("special-section")'*@
         </div>
     </div>
     @*Arcillary Section*@
-    <div id='ancillary_branch-section' class='section'>
-        <div class='occ-title-single' id='ancillary_branch'>
+    <div id='ancillary_branch-section' class='section' style='display:none'>
+        <div class='occ-title' id='ancillary_branch'>
             <h1>Imperial Ancillary Branch</h1>
-            <h2>Research, logistics, operations, and engineering</h2>
+            @* <h2>Research, logistics, operations, and engineering</h2> *@
         </div>
                     
         <div class='navy-army-container'>
@@ -2405,7 +2396,7 @@ onClick='displayBranch("special-section")'*@
         </div>
     </div>
     @*Stormtrooper Section*@
-    <div id='stormtrooper-section' class='section'>
+    <div id='stormtrooper-section' class='section' style='display:none'>
         @*Stormtroopers*@
         <div class='occ-title' id='stormtroopers'>
             <h1>Stormtroopers</h1>
@@ -3086,7 +3077,7 @@ onClick='displayBranch("special-section")'*@
         </div>
     </div>              
     @*Special Section*@
-    <div id='special-section' class='section'>
+    <div id='special-section' class='section' style='display:none'>
         @*Special*@
         <div class='occ-title' id='special'>
             <h1>Specialized Troopers and Elite Positions</h1>
@@ -3216,3 +3207,21 @@ onClick='displayBranch("special-section")'*@
         </div>
     </div>
 </div>
+
+@section Scripts {
+<script>
+    var sectionIds = ['top-section', 'army_navy-section', 'army_navy_intelligence-section', 'ancillary_branch-section', 'stormtrooper-section', 'special-section'];
+
+    function showSection(sectionId, btn) {
+        sectionIds.forEach(function(id) {
+            document.getElementById(id).style.display = 'none';
+        });
+        document.getElementById(sectionId).style.display = '';
+
+        document.querySelectorAll('#buttons-section .button').forEach(function(b) {
+            b.classList.remove('active');
+        });
+        btn.classList.add('active');
+    }
+</script>
+}
