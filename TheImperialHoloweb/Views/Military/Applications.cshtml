@@ -1,3 +1,851 @@
-﻿<div>
-    <h1>Military Applications</h1>
+@model TheImperialHoloweb.Models.Military.MilitaryApplicationViewModel
+
+@{
+    ViewData["Title"] = "Imperial Military Application";
+}
+
+<div id="header-section">
+    <h1 class="imp-header">Imperial Military Enlistment</h1>
+    <p class="imp-header-text">Application for Service to the Galactic Empire</p>
 </div>
+
+<div class="app-container">
+    <form id="enlistment-form" asp-action="Applications" asp-controller="Military" method="post">
+        @Html.AntiForgeryToken()
+
+        @* ── Section I: Personal Information ── *@
+        <div class="app-section">
+            <h2 class="app-section-title">I. Personal Information</h2>
+
+            @* Name – three columns *@
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="FirstName" class="app-label"></label>
+                    <input asp-for="FirstName" class="app-input" placeholder="Enter first name" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="MiddleName" class="app-label"></label>
+                    <input asp-for="MiddleName" class="app-input" placeholder="Enter middle name" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="app-label"></label>
+                    <input asp-for="LastName" class="app-input" placeholder="Enter last name" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="Email" class="app-label"></label>
+                    <input asp-for="Email" type="email" class="app-input" placeholder="comm@example.imp" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone" class="app-label"></label>
+                    <input asp-for="Phone" type="tel" class="app-input" placeholder="e.g. 012-345-6789" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="DateOfBirth" class="app-label"></label>
+                    <input asp-for="DateOfBirth" type="date" class="app-input" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Gender" class="app-label"></label>
+                    <select asp-for="Gender" class="app-select">
+                        <option value="">-- Select --</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                        <option value="Prefer not to say">Prefer Not to Say</option>
+                    </select>
+                </div>
+            </div>
+
+            @* Species / Home Planet – custom searchable dropdowns *@
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="app-label">Species</label>
+                    <div class="searchable-dropdown">
+                        <div class="sd-input-wrap">
+                            <input type="text" class="app-input sd-display"
+                                   placeholder="Type to search species..." autocomplete="off" />
+                            <span class="sd-arrow">&#9660;</span>
+                        </div>
+                        <div class="sd-panel" style="display:none">
+                            <div class="sd-option" data-value="Human">Human</div>
+                            <div class="sd-option" data-value="Twi'lek">Twi'lek</div>
+                            <div class="sd-option" data-value="Wookiee">Wookiee</div>
+                            <div class="sd-option" data-value="Zabrak">Zabrak</div>
+                            <div class="sd-option" data-value="Rodian">Rodian</div>
+                            <div class="sd-option" data-value="Chiss">Chiss</div>
+                            <div class="sd-option" data-value="Mirialan">Mirialan</div>
+                            <div class="sd-option" data-value="Togruta">Togruta</div>
+                            <div class="sd-option" data-value="Nautolan">Nautolan</div>
+                            <div class="sd-option" data-value="Mon Calamari">Mon Calamari</div>
+                            <div class="sd-option" data-value="Quarren">Quarren</div>
+                            <div class="sd-option" data-value="Sullustan">Sullustan</div>
+                            <div class="sd-option" data-value="Duros">Duros</div>
+                            <div class="sd-option" data-value="Ithorian">Ithorian</div>
+                            <div class="sd-option" data-value="Gran">Gran</div>
+                            <div class="sd-option" data-value="Kaminoan">Kaminoan</div>
+                            <div class="sd-option" data-value="Trandoshan">Trandoshan</div>
+                            <div class="sd-option" data-value="Weequay">Weequay</div>
+                            <div class="sd-option" data-value="Devaronian">Devaronian</div>
+                            <div class="sd-option" data-value="Cerean">Cerean</div>
+                            <div class="sd-option" data-value="Kel Dor">Kel Dor</div>
+                            <div class="sd-option" data-value="Pantoran">Pantoran</div>
+                            <div class="sd-option" data-value="Iktotchi">Iktotchi</div>
+                            <div class="sd-option" data-value="Umbaran">Umbaran</div>
+                            <div class="sd-option" data-value="Falleen">Falleen</div>
+                            <div class="sd-option" data-value="Nikto">Nikto</div>
+                            <div class="sd-option" data-value="Besalisk">Besalisk</div>
+                            <div class="sd-option" data-value="Dathomirian">Dathomirian</div>
+                            <div class="sd-option" data-value="Muun">Muun</div>
+                            <div class="sd-option" data-value="Neimoidian">Neimoidian</div>
+                            <div class="sd-option" data-value="Geonosian">Geonosian</div>
+                            <div class="sd-option" data-value="Pau'an">Pau'an</div>
+                            <div class="sd-option" data-value="Toydarian">Toydarian</div>
+                            <div class="sd-option" data-value="Clawdite">Clawdite</div>
+                            <div class="sd-option" data-value="Chadra-Fan">Chadra-Fan</div>
+                            <div class="sd-option" data-value="Bothan">Bothan</div>
+                            <div class="sd-option" data-value="Near-Human">Near-Human</div>
+                            <div class="sd-option" data-value="Other">Other</div>
+                        </div>
+                        <input type="hidden" name="Species" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="app-label">Home Planet</label>
+                    <div class="searchable-dropdown">
+                        <div class="sd-input-wrap">
+                            <input type="text" class="app-input sd-display"
+                                   placeholder="Type to search planets..." autocomplete="off" />
+                            <span class="sd-arrow">&#9660;</span>
+                        </div>
+                        <div class="sd-panel" style="display:none">
+                            <div class="sd-option" data-value="Coruscant">Coruscant</div>
+                            <div class="sd-option" data-value="Tatooine">Tatooine</div>
+                            <div class="sd-option" data-value="Alderaan">Alderaan</div>
+                            <div class="sd-option" data-value="Naboo">Naboo</div>
+                            <div class="sd-option" data-value="Hoth">Hoth</div>
+                            <div class="sd-option" data-value="Dagobah">Dagobah</div>
+                            <div class="sd-option" data-value="Endor">Endor</div>
+                            <div class="sd-option" data-value="Bespin">Bespin</div>
+                            <div class="sd-option" data-value="Mustafar">Mustafar</div>
+                            <div class="sd-option" data-value="Geonosis">Geonosis</div>
+                            <div class="sd-option" data-value="Kamino">Kamino</div>
+                            <div class="sd-option" data-value="Utapau">Utapau</div>
+                            <div class="sd-option" data-value="Mandalore">Mandalore</div>
+                            <div class="sd-option" data-value="Lothal">Lothal</div>
+                            <div class="sd-option" data-value="Scarif">Scarif</div>
+                            <div class="sd-option" data-value="Jedha">Jedha</div>
+                            <div class="sd-option" data-value="Eadu">Eadu</div>
+                            <div class="sd-option" data-value="Jakku">Jakku</div>
+                            <div class="sd-option" data-value="Ryloth">Ryloth</div>
+                            <div class="sd-option" data-value="Rodia">Rodia</div>
+                            <div class="sd-option" data-value="Nal Hutta">Nal Hutta</div>
+                            <div class="sd-option" data-value="Kashyyyk">Kashyyyk</div>
+                            <div class="sd-option" data-value="Felucia">Felucia</div>
+                            <div class="sd-option" data-value="Christophsis">Christophsis</div>
+                            <div class="sd-option" data-value="Onderon">Onderon</div>
+                            <div class="sd-option" data-value="Dathomir">Dathomir</div>
+                            <div class="sd-option" data-value="Shili">Shili</div>
+                            <div class="sd-option" data-value="Malastare">Malastare</div>
+                            <div class="sd-option" data-value="Ilum">Ilum</div>
+                            <div class="sd-option" data-value="Crait">Crait</div>
+                            <div class="sd-option" data-value="Takodana">Takodana</div>
+                            <div class="sd-option" data-value="Ahch-To">Ahch-To</div>
+                            <div class="sd-option" data-value="Mon Cala">Mon Cala</div>
+                            <div class="sd-option" data-value="Corellia">Corellia</div>
+                            <div class="sd-option" data-value="Chandrila">Chandrila</div>
+                            <div class="sd-option" data-value="Dantooine">Dantooine</div>
+                            <div class="sd-option" data-value="Malachor">Malachor</div>
+                            <div class="sd-option" data-value="Nevarro">Nevarro</div>
+                            <div class="sd-option" data-value="Batuu">Batuu</div>
+                            <div class="sd-option" data-value="Exegol">Exegol</div>
+                            <div class="sd-option" data-value="Kijimi">Kijimi</div>
+                            <div class="sd-option" data-value="Pasaana">Pasaana</div>
+                            <div class="sd-option" data-value="Tython">Tython</div>
+                            <div class="sd-option" data-value="Serenno">Serenno</div>
+                            <div class="sd-option" data-value="Mygeeto">Mygeeto</div>
+                            <div class="sd-option" data-value="Saleucami">Saleucami</div>
+                            <div class="sd-option" data-value="Polis Massa">Polis Massa</div>
+                            <div class="sd-option" data-value="Concord Dawn">Concord Dawn</div>
+                            <div class="sd-option" data-value="Florrum">Florrum</div>
+                            <div class="sd-option" data-value="Arvala-7">Arvala-7</div>
+                            <div class="sd-option" data-value="Sorgan">Sorgan</div>
+                        </div>
+                        <input type="hidden" name="HomePlanet" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @* ── Section II: Background & Status ── *@
+        <div class="app-section">
+            <h2 class="app-section-title">II. Background &amp; Status</h2>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="CitizenshipStatus" class="app-label"></label>
+                    <select asp-for="CitizenshipStatus" id="CitizenshipStatus" class="app-select">
+                        <option value="">-- Select --</option>
+                        <option value="Imperial Citizen">Imperial Citizen</option>
+                        <option value="Imperial Territory Resident">Imperial Territory Resident</option>
+                        <option value="Outer Rim Resident">Outer Rim Resident</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EducationLevel" class="app-label"></label>
+                    <select asp-for="EducationLevel" class="app-select">
+                        <option value="">-- Select --</option>
+                        <option value="No Formal Education">No Formal Education</option>
+                        <option value="Basic Schooling">Basic Schooling</option>
+                        <option value="Secondary Academy">Secondary Academy</option>
+                        <option value="Advanced Study">Advanced University Study</option>
+                        <option value="Imperial Academy">Imperial Academy Graduate</option>
+                    </select>
+                </div>
+            </div>
+
+            @* Citizenship Other – revealed by JS *@
+            <div id="citizenship-other-section" style="display:none">
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label asp-for="CitizenshipOther" class="app-label"></label>
+                        <input asp-for="CitizenshipOther" class="app-input"
+                               placeholder="Describe your citizenship status..." />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label asp-for="CurrentOccupation" class="app-label"></label>
+                    <input asp-for="CurrentOccupation" class="app-input"
+                           placeholder="Your current occupation or station" />
+                </div>
+            </div>
+
+            <h3 class="app-subsection-title">Physical Attributes</h3>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="HeightFeet" class="app-label"></label>
+                    <select asp-for="HeightFeet" class="app-select">
+                        @for (int ft = 0; ft <= 20; ft++)
+                        {
+                            <option value="@ft">@ft ft</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HeightInches" class="app-label"></label>
+                    <select asp-for="HeightInches" class="app-select">
+                        @for (int inch = 0; inch <= 11; inch++)
+                        {
+                            <option value="@inch">@inch in</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="WeightRange" class="app-label"></label>
+                    <select asp-for="WeightRange" class="app-select">
+                        <option value="">-- Select range --</option>
+                        <option value="Under 20 lbs">Under 20 lbs</option>
+                        <option value="21 – 40 lbs">21 – 40 lbs</option>
+                        <option value="41 – 60 lbs">41 – 60 lbs</option>
+                        <option value="61 – 80 lbs">61 – 80 lbs</option>
+                        <option value="81 – 100 lbs">81 – 100 lbs</option>
+                        <option value="101 – 125 lbs">101 – 125 lbs</option>
+                        <option value="126 – 150 lbs">126 – 150 lbs</option>
+                        <option value="151 – 175 lbs">151 – 175 lbs</option>
+                        <option value="176 – 200 lbs">176 – 200 lbs</option>
+                        <option value="201 – 225 lbs">201 – 225 lbs</option>
+                        <option value="226 – 250 lbs">226 – 250 lbs</option>
+                        <option value="251 – 300 lbs">251 – 300 lbs</option>
+                        <option value="301 – 350 lbs">301 – 350 lbs</option>
+                        <option value="351 – 400 lbs">351 – 400 lbs</option>
+                        <option value="401 – 450 lbs">401 – 450 lbs</option>
+                        <option value="451 – 500 lbs">451 – 500 lbs</option>
+                        <option value="Over 500 lbs">Over 500 lbs</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="NumberOfArms" class="app-label"></label>
+                    <input asp-for="NumberOfArms" type="number" min="0" max="20" class="app-input" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumberOfLegs" class="app-label"></label>
+                    <input asp-for="NumberOfLegs" type="number" min="0" max="20" class="app-input" />
+                </div>
+            </div>
+        </div>
+
+        @* ── Section III: Combat & Military Experience ── *@
+        <div class="app-section">
+            <h2 class="app-section-title">III. Combat &amp; Military Experience</h2>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="app-label">Prior Military Service?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="HasPriorMilitaryService" value="true" /> Yes
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="HasPriorMilitaryService" value="false" checked="checked" /> No
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="app-label">Physical Fitness Level</label>
+                    <div class="radio-group">
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            <label class="radio-label">
+                                <input type="radio" name="PhysicalFitnessLevel" value="@i"
+                                       @(i == 3 ? "checked=\"checked\"" : "") />
+                                @i
+                            </label>
+                        }
+                        <span class="radio-hint">(1 = Poor &nbsp;5 = Elite)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label asp-for="PriorMilitaryDetails" class="app-label"></label>
+                    <textarea asp-for="PriorMilitaryDetails" class="app-textarea" rows="3"
+                              placeholder="If applicable — describe your prior service: unit, rank, duties, theater of operation..."></textarea>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="app-label">Firearms / Weapons Experience?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="HasFirearmsExperience" value="true" /> Yes
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="HasFirearmsExperience" value="false" checked="checked" /> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            @* Firearms item picker – revealed when Yes *@
+            <div id="firearms-details-section" style="display:none">
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label class="app-label">
+                            Add Weapon &amp; Rate Expertise:
+                            <span class="app-label-sub">(select a weapon, then set your expertise level)</span>
+                        </label>
+                        <div class="item-picker-wrap">
+                            <div class="searchable-dropdown picker-dropdown" id="weapon-picker">
+                                <div class="sd-input-wrap">
+                                    <input type="text" class="app-input sd-display"
+                                           placeholder="Search and select a weapon to add..." autocomplete="off" />
+                                    <span class="sd-arrow">&#9660;</span>
+                                </div>
+                                <div class="sd-panel" style="display:none">
+                                    <div class="sd-option" data-value="Blaster Pistol">Blaster Pistol</div>
+                                    <div class="sd-option" data-value="Blaster Rifle">Blaster Rifle</div>
+                                    <div class="sd-option" data-value="E-11 Blaster Rifle">E-11 Blaster Rifle</div>
+                                    <div class="sd-option" data-value="DLT-19 Heavy Blaster">DLT-19 Heavy Blaster</div>
+                                    <div class="sd-option" data-value="Heavy Repeating Blaster">Heavy Repeating Blaster</div>
+                                    <div class="sd-option" data-value="Thermal Detonator">Thermal Detonator</div>
+                                    <div class="sd-option" data-value="Ion Cannon">Ion Cannon</div>
+                                    <div class="sd-option" data-value="Slugthrower">Slugthrower</div>
+                                    <div class="sd-option" data-value="Bowcaster">Bowcaster</div>
+                                    <div class="sd-option" data-value="Disruptor Rifle">Disruptor Rifle</div>
+                                    <div class="sd-option" data-value="Vibroblade">Vibroblade</div>
+                                    <div class="sd-option" data-value="Electrostaff">Electrostaff</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="weapons-list" class="picked-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @* ── Section IV: Technical Proficiency ── *@
+        <div class="app-section">
+            <h2 class="app-section-title">IV. Technical Proficiency</h2>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="ComputerKnowledgeLevel" class="app-label"></label>
+                    <select asp-for="ComputerKnowledgeLevel" class="app-select">
+                        <option value="None">None</option>
+                        <option value="Basic">Basic — standard terminal use</option>
+                        <option value="Intermediate">Intermediate — network access, basic slicing</option>
+                        <option value="Advanced">Advanced — security bypass, system intrusion</option>
+                        <option value="Expert">Expert — Imperial-grade encryption systems</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BiotechKnowledgeLevel" class="app-label"></label>
+                    <select asp-for="BiotechKnowledgeLevel" class="app-select">
+                        <option value="None">None</option>
+                        <option value="Basic">Basic First Aid</option>
+                        <option value="Intermediate">Intermediate — Medpac Proficiency</option>
+                        <option value="Advanced">Advanced — Field Medicine</option>
+                        <option value="Expert">Expert — Bacta Treatment Specialist</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="EngineeringLevel" class="app-label"></label>
+                    <select asp-for="EngineeringLevel" class="app-select">
+                        <option value="None">None</option>
+                        <option value="Basic">Basic Maintenance</option>
+                        <option value="Intermediate">Intermediate Repair</option>
+                        <option value="Advanced">Advanced Systems Engineering</option>
+                        <option value="Expert">Expert — Imperial Corps of Engineers Level</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="app-label">Piloting Experience?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="HasPilotingExperience" value="true" /> Yes
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="HasPilotingExperience" value="false" checked="checked" /> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            @* Vessel item picker – revealed when Yes *@
+            <div id="vessel-types-section" style="display:none">
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label class="app-label">
+                            Add Vessel Type &amp; Rate Proficiency:
+                            <span class="app-label-sub">(select a vessel, then set your proficiency level)</span>
+                        </label>
+                        <div class="item-picker-wrap">
+                            <div class="searchable-dropdown picker-dropdown" id="vessel-picker">
+                                <div class="sd-input-wrap">
+                                    <input type="text" class="app-input sd-display"
+                                           placeholder="Search and select a vessel type..." autocomplete="off" />
+                                    <span class="sd-arrow">&#9660;</span>
+                                </div>
+                                <div class="sd-panel" style="display:none">
+                                    <div class="sd-option" data-value="Speeder Bike">Speeder Bike</div>
+                                    <div class="sd-option" data-value="Landspeeder">Landspeeder</div>
+                                    <div class="sd-option" data-value="BARC Speeder">BARC Speeder</div>
+                                    <div class="sd-option" data-value="TIE Fighter">TIE Fighter</div>
+                                    <div class="sd-option" data-value="TIE Interceptor">TIE Interceptor</div>
+                                    <div class="sd-option" data-value="TIE Bomber">TIE Bomber</div>
+                                    <div class="sd-option" data-value="Starfighter (Generic)">Starfighter (Generic)</div>
+                                    <div class="sd-option" data-value="Freighter">Freighter</div>
+                                    <div class="sd-option" data-value="AT-AT Walker">AT-AT Walker</div>
+                                    <div class="sd-option" data-value="AT-ST Walker">AT-ST Walker</div>
+                                    <div class="sd-option" data-value="Capital Ship">Capital Ship</div>
+                                    <div class="sd-option" data-value="Lambda-class Shuttle">Lambda-class Shuttle</div>
+                                    <div class="sd-option" data-value="Imperial Star Destroyer">Imperial Star Destroyer</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="vessels-list" class="picked-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @* ── Section V: Imperial Allegiance ── *@
+        <div class="app-section">
+            <h2 class="app-section-title">V. Imperial Allegiance &amp; Motivations</h2>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="app-label">
+                        Have you ever been affiliated with any rebel or terrorist organizations?
+                    </label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="HasRebelAffiliation" value="true" />
+                            Yes <span class="radio-hint">(disclosure required)</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="HasRebelAffiliation" value="false" checked="checked" /> No
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="app-label">Force Sensitivity Assessment:</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="ForceSensitivity" value="None" checked="checked" /> None Detected</label>
+                        <label class="radio-label"><input type="radio" name="ForceSensitivity" value="Minor" /> Minor</label>
+                        <label class="radio-label"><input type="radio" name="ForceSensitivity" value="Significant" /> Significant</label>
+                        <label class="radio-label"><input type="radio" name="ForceSensitivity" value="Unknown" /> Unknown</label>
+                    </div>
+                    <span class="radio-hint">Significant sensitivity will require ISB evaluation</span>
+                </div>
+            </div>
+
+            @* Rebel affiliation detail – revealed when Yes *@
+            <div id="rebel-org-section" style="display:none">
+                <div class="app-reveal-section">
+                    <h3 class="app-reveal-title">Rebel / Terrorist Affiliation Details</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="app-label">Which organization were you affiliated with?</label>
+                            <select id="RebelOrganization" name="RebelOrganization" class="app-select">
+                                <option value="">-- Select Organization --</option>
+                                <option value="Rebel Alliance">Rebel Alliance</option>
+                                <option value="Phoenix Squadron">Phoenix Squadron</option>
+                                <option value="Saw Gerrera's Partisans">Saw Gerrera's Partisans</option>
+                                <option value="Mandalorian Resistance">Mandalorian Resistance</option>
+                                <option value="Fulcrum Network">Fulcrum Network</option>
+                                <option value="Mon Cala Resistance">Mon Cala Resistance</option>
+                                <option value="Pyke Syndicate">Pyke Syndicate</option>
+                                <option value="Black Sun">Black Sun</option>
+                                <option value="Crimson Dawn">Crimson Dawn</option>
+                                <option value="Night Owls">Night Owls (Mandalorian Clan)</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="app-label">What was your role in the organization?</label>
+                            <select id="RebelRole" name="RebelRole" class="app-select">
+                                <option value="">-- Select Role --</option>
+                                <option value="Combat Operative">Combat Operative</option>
+                                <option value="Intelligence Asset">Intelligence Asset / Spy</option>
+                                <option value="Logistics / Supply">Logistics / Supply</option>
+                                <option value="Pilot">Pilot</option>
+                                <option value="Medic">Medic</option>
+                                <option value="Communications">Communications Officer</option>
+                                <option value="Leadership">Leadership / Command</option>
+                                <option value="Unwilling Participant">Unwilling / Coerced Participant</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    @* Organization Other – revealed when Other is chosen *@
+                    <div id="rebel-org-other-section" style="display:none">
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label asp-for="RebelOrganizationOther" class="app-label"></label>
+                                <input asp-for="RebelOrganizationOther" class="app-input"
+                                       placeholder="Enter the name of the organization..." />
+                            </div>
+                        </div>
+                    </div>
+
+                    @* Role Other – revealed when Other is chosen *@
+                    <div id="rebel-role-other-section" style="display:none">
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label asp-for="RebelRoleOther" class="app-label"></label>
+                                <input asp-for="RebelRoleOther" class="app-input"
+                                       placeholder="Enter your role title..." />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label asp-for="RebelInvolvementDetails" class="app-label"></label>
+                            <textarea asp-for="RebelInvolvementDetails" class="app-textarea" rows="3"
+                                      placeholder="Describe when, where, and how you were involved. Imperial Intelligence will verify all claims..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="PreferredDivision" class="app-label"></label>
+                    <select asp-for="PreferredDivision" class="app-select">
+                        <option value="">-- No Preference --</option>
+                        <option value="Imperial Army">Imperial Army</option>
+                        <option value="Imperial Navy">Imperial Navy</option>
+                        <option value="Stormtrooper Corps">Stormtrooper Corps</option>
+                        <option value="Imperial Intelligence">Imperial Intelligence</option>
+                        <option value="Imperial Security Bureau">Imperial Security Bureau (ISB)</option>
+                        <option value="Death Star Operations">Death Star Operations</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="app-label">Knowledge of Hyperspace Navigation?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="HasHyperspaceKnowledge" value="true" /> Yes
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="HasHyperspaceKnowledge" value="false" checked="checked" /> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label class="app-label">
+                        Motivations for Enlisting:
+                        <span class="app-label-sub">(select all that apply)</span>
+                    </label>
+                    <div class="checkbox-group horizontal">
+                        <label class="checkbox-label"><input type="checkbox" name="EnlistingMotivations" value="Serve the Empire" /> Serve the Empire</label>
+                        <label class="checkbox-label"><input type="checkbox" name="EnlistingMotivations" value="Duty & Honor" /> Duty &amp; Honor</label>
+                        <label class="checkbox-label"><input type="checkbox" name="EnlistingMotivations" value="Career Opportunity" /> Career Opportunity</label>
+                        <label class="checkbox-label"><input type="checkbox" name="EnlistingMotivations" value="Family Tradition" /> Family Tradition</label>
+                        <label class="checkbox-label"><input type="checkbox" name="EnlistingMotivations" value="Economic Stability" /> Economic Stability</label>
+                        <label class="checkbox-label"><input type="checkbox" name="EnlistingMotivations" value="Adventure" /> Adventure</label>
+                        <label class="checkbox-label"><input type="checkbox" name="EnlistingMotivations" value="Protection of Citizens" /> Protection of Citizens</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label asp-for="AllegianceStatement" class="app-label"></label>
+                    <textarea asp-for="AllegianceStatement" class="app-textarea" rows="6"
+                              placeholder="In your own words, describe your commitment to the Galactic Empire and why you wish to serve Emperor Palpatine..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-submit-section">
+            <p class="app-disclaimer">
+                By submitting this application, you hereby declare all information provided to be true and accurate
+                to the best of your knowledge. Falsification of any statement herein is a punishable offense under
+                Imperial Code, Section 14-7 — subject to detention and Imperial tribunal.
+            </p>
+            <button type="submit" class="button app-submit-btn">Submit Application to the Empire</button>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+    (function () {
+        'use strict';
+
+        // ── Standard searchable dropdown ──────────────────────────────────
+        function initSearchableDropdown(container) {
+            var display = container.querySelector('.sd-display');
+            var panel   = container.querySelector('.sd-panel');
+            var hidden  = container.querySelector('input[type="hidden"]');
+            var opts    = Array.from(container.querySelectorAll('.sd-option'));
+            if (!display || !panel) return;
+
+            // Pre-fill display from any existing hidden value (e.g. POST round-trip)
+            if (hidden && hidden.value) display.value = hidden.value;
+
+            function applyFilter(q) {
+                opts.forEach(function (o) {
+                    o.style.display = o.textContent.toLowerCase().includes(q.toLowerCase()) ? '' : 'none';
+                });
+            }
+
+            display.addEventListener('focus', function () {
+                applyFilter('');
+                panel.style.display = 'block';
+            });
+
+            display.addEventListener('input', function () {
+                applyFilter(this.value);
+                if (hidden) hidden.value = '';
+                panel.style.display = 'block';
+            });
+
+            opts.forEach(function (opt) {
+                opt.addEventListener('mousedown', function (e) {
+                    e.preventDefault();
+                    display.value = this.dataset.value;
+                    if (hidden) hidden.value = this.dataset.value;
+                    panel.style.display = 'none';
+                });
+            });
+
+            display.addEventListener('blur', function () {
+                setTimeout(function () { panel.style.display = 'none'; }, 150);
+            });
+        }
+
+        document.querySelectorAll('.searchable-dropdown:not(.picker-dropdown)')
+                .forEach(initSearchableDropdown);
+
+        // ── Item picker (weapons / vessels) ──────────────────────────────
+        function showEmptyMsg(listEl) {
+            if (!listEl.querySelector('.picked-list-empty')) {
+                var p = document.createElement('p');
+                p.className = 'picked-list-empty';
+                p.textContent = 'No items added yet. Search above to add one.';
+                listEl.appendChild(p);
+            }
+        }
+
+        function createPickedItem(name, level, nameKey, levelKey, optEl, listEl) {
+            var div = document.createElement('div');
+            div.className = 'picked-item';
+            div.dataset.name = name;
+
+            // Slider column (LEFT)
+            var sliderCol = document.createElement('div');
+            sliderCol.className = 'picked-item-slider-col';
+
+            var slider = document.createElement('input');
+            slider.type = 'range'; slider.min = 1; slider.max = 5; slider.value = level;
+            slider.className = 'app-range';
+
+            var nums = document.createElement('div');
+            nums.className = 'picked-range-labels';
+            nums.innerHTML = '<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>';
+
+            var hint = document.createElement('div');
+            hint.className = 'picked-range-hint';
+            hint.innerHTML = '<span>Novice</span><span>Expert</span>';
+
+            sliderCol.appendChild(slider);
+            sliderCol.appendChild(nums);
+            sliderCol.appendChild(hint);
+
+            // Name / level column (RIGHT)
+            var nameCol = document.createElement('div');
+            nameCol.className = 'picked-item-name-col';
+
+            var nameSpan = document.createElement('span');
+            nameSpan.className = 'picked-item-name';
+            nameSpan.textContent = name;
+
+            var lvlSpan = document.createElement('span');
+            lvlSpan.className = 'picked-item-level';
+            lvlSpan.textContent = level + ' / 5';
+
+            nameCol.appendChild(nameSpan);
+            nameCol.appendChild(lvlSpan);
+
+            // Remove button
+            var removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.className = 'picked-item-remove';
+            removeBtn.title = 'Remove';
+            removeBtn.innerHTML = '&#x2715;';
+
+            // Hidden form inputs
+            var hName = document.createElement('input');
+            hName.type = 'hidden'; hName.name = nameKey; hName.value = name;
+
+            var hLevel = document.createElement('input');
+            hLevel.type = 'hidden'; hLevel.name = levelKey; hLevel.value = level;
+
+            // Events
+            slider.addEventListener('input', function () {
+                lvlSpan.textContent = this.value + ' / 5';
+                hLevel.value = this.value;
+            });
+
+            removeBtn.addEventListener('click', function () {
+                div.remove();
+                if (optEl) { delete optEl.dataset.picked; optEl.style.display = ''; }
+                if (!listEl.querySelector('.picked-item')) showEmptyMsg(listEl);
+            });
+
+            div.appendChild(sliderCol);
+            div.appendChild(nameCol);
+            div.appendChild(removeBtn);
+            div.appendChild(hName);
+            div.appendChild(hLevel);
+            return div;
+        }
+
+        function initPickerDropdown(pickerId, listId, nameKey, levelKey) {
+            var picker = document.getElementById(pickerId);
+            var listEl = document.getElementById(listId);
+            if (!picker || !listEl) return;
+
+            var display = picker.querySelector('.sd-display');
+            var panel   = picker.querySelector('.sd-panel');
+            var opts    = Array.from(picker.querySelectorAll('.sd-option'));
+
+            showEmptyMsg(listEl);
+
+            function applyFilter(q) {
+                opts.forEach(function (o) {
+                    if (o.dataset.picked === 'true') { o.style.display = 'none'; return; }
+                    o.style.display = o.textContent.toLowerCase().includes(q.toLowerCase()) ? '' : 'none';
+                });
+            }
+
+            display.addEventListener('focus', function () { applyFilter(''); panel.style.display = 'block'; });
+            display.addEventListener('input', function () { applyFilter(this.value); panel.style.display = 'block'; });
+            display.addEventListener('blur',  function () { setTimeout(function () { panel.style.display = 'none'; }, 150); });
+
+            opts.forEach(function (opt) {
+                opt.addEventListener('mousedown', function (e) {
+                    e.preventDefault();
+                    if (this.dataset.picked === 'true') return;
+                    this.dataset.picked = 'true';
+                    this.style.display = 'none';
+
+                    var empty = listEl.querySelector('.picked-list-empty');
+                    if (empty) empty.remove();
+
+                    listEl.appendChild(createPickedItem(this.dataset.value, 3, nameKey, levelKey, this, listEl));
+                    display.value = '';
+                    panel.style.display = 'none';
+                });
+            });
+        }
+
+        initPickerDropdown('weapon-picker', 'weapons-list', 'FirearmsTypes', 'FirearmsLevels');
+        initPickerDropdown('vessel-picker', 'vessels-list', 'VesselTypes',   'VesselLevels');
+
+        // ── Conditional reveals ───────────────────────────────────────────
+        function reveal(id, show) {
+            var el = document.getElementById(id);
+            if (el) el.style.display = show ? 'block' : 'none';
+        }
+
+        document.getElementById('CitizenshipStatus').addEventListener('change', function () {
+            reveal('citizenship-other-section', this.value === 'Other');
+        });
+
+        document.querySelectorAll('input[name="HasFirearmsExperience"]').forEach(function (r) {
+            r.addEventListener('change', function () { reveal('firearms-details-section', this.value === 'true'); });
+        });
+
+        document.querySelectorAll('input[name="HasPilotingExperience"]').forEach(function (r) {
+            r.addEventListener('change', function () { reveal('vessel-types-section', this.value === 'true'); });
+        });
+
+        document.querySelectorAll('input[name="HasRebelAffiliation"]').forEach(function (r) {
+            r.addEventListener('change', function () { reveal('rebel-org-section', this.value === 'true'); });
+        });
+
+        document.getElementById('RebelOrganization').addEventListener('change', function () {
+            reveal('rebel-org-other-section', this.value === 'Other');
+        });
+
+        document.getElementById('RebelRole').addEventListener('change', function () {
+            reveal('rebel-role-other-section', this.value === 'Other');
+        });
+
+        // Form submit
+        document.getElementById('enlistment-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Form submission completed. Will implement POST to DB in future.');
+        });
+
+    }());
+    </script>
+}

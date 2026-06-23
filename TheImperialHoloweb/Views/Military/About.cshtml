@@ -1,3 +1,276 @@
-﻿<div>
-    <h1>Military About</h1>
+@{
+    ViewData["Title"] = "Imperial Military";
+}
+
+<div id="header-section">
+    <h1 class="imp-header">The Galactic Empire Military</h1>
+    <p class="imp-header-text">Defenders of Order &mdash; Enforcers of Peace &mdash; Guardians of the Galaxy</p>
+</div>
+
+<div class="about-layout">
+
+    @* Left banner *@
+    <div class="about-banner-col">
+        <img src="~/images/banner3.jpg" class="about-banner-img" alt="" />
+    </div>
+
+    @* Main essay content *@
+    <div class="about-content">
+
+        @* ── Section 1 ── *@
+        <h2 class="about-heading">The Mightiest Force the Galaxy Has Ever Known</h2>
+
+        <p class="about-text">
+            For over two decades, the Galactic Empire has maintained the most powerful, disciplined, and feared
+            military force the galaxy has ever witnessed. Born from the ashes of the corrupt and ineffectual
+            Republic military — a force dependent on genetically engineered conscripts and the erratic wisdom of
+            self-appointed Jedi peacekeepers — the Imperial Military represents the pinnacle of organized might,
+            superior technology, and unwavering loyalty to Emperor Palpatine and the New Order he has brought
+            to a galaxy in desperate need of leadership.
+        </p>
+
+        <p class="about-text">
+            Where the Galactic Republic once struggled to maintain fragile, temporary peace through the labor of
+            clone soldiers bred in laboratories and sold to the highest bidder, the Imperial Military draws its
+            strength from a far greater source: the voluntary service of loyal citizens across ten thousand star
+            systems. Men and women who understand that true peace is not given — it is earned, defended, and
+            enforced. Citizens who recognize that the sacrifice of service is not a burden but an honor, and that
+            the protection of civilization itself is the most noble calling one can answer.
+        </p>
+
+        <div class="about-section-cta">
+            <p class="about-section-cta-text">
+                Ready to become part of the greatest military force in the history of the galaxy?
+                Your place in history is waiting — and it begins with a single application.
+            </p>
+            <a href="/Military/Applications" class="button btn-section-enlist">Begin Your Application</a>
+        </div>
+
+        @* ── Section 2 ── *@
+        <div class="about-divider"></div>
+        <h2 class="about-heading">Order Through Strength</h2>
+
+        <p class="about-text">
+            The fundamental doctrine of the Imperial Military is as clear as it is effective: stability through
+            superior force. In a galaxy once consumed by the chaos of the Clone Wars — a conflict that left entire
+            systems in ruin, economies shattered, and civilian populations caught between warring factions — the
+            Empire stands as the one institution capable of delivering true and lasting peace. Our legions have
+            pacified worlds that had known bloodshed for generations. Our Star Destroyers have brought law and
+            commerce to systems where lawlessness once reigned unchecked.
+        </p>
+
+        <p class="about-text">
+            Critics of the Empire — and there will always be those who prefer comfortable lies over uncomfortable
+            peace — speak of heavy-handedness and control. What they label as control, the merchants along the
+            Outer Rim hyperspace lanes call the freedom to conduct commerce without fear of piracy. What they
+            call enforcement, communities once terrorized by criminal syndicates such as the Pyke Syndicate and
+            Black Sun call rescue. The Imperial Military does not ask for gratitude. It asks only for the
+            opportunity to serve the people it protects.
+        </p>
+
+        <div class="about-section-cta">
+            <p class="about-section-cta-text">
+                Ready to stand as a defender of order and a shield against the chaos that threatens every
+                citizen of the galaxy? The Empire needs those who believe in something greater than themselves.
+            </p>
+            <a href="/Military/Applications" class="button btn-section-enlist">Serve the Empire</a>
+        </div>
+
+        @* Image Placeholder 1 – full width *@
+        <div class="about-img-placeholder">
+            <div class="about-placeholder-inner">
+                <span class="about-placeholder-tag">Image Pending &mdash; Classification Review</span>
+                <span class="about-placeholder-title">Imperial Victory — Suppression of Rebel Insurgency on Onderon</span>
+                <span class="about-placeholder-caption">Image Coming Soon</span>
+            </div>
+        </div>
+
+        @* ── Section 3 ── *@
+        <div class="about-divider"></div>
+        <h2 class="about-heading">The Imperial Army</h2>
+
+        <p class="about-text">
+            The backbone of Imperial ground operations, the Imperial Army is a force without equal in the history
+            of land warfare. Comprised of hundreds of thousands of infantry divisions, heavy armor battalions,
+            artillery regiments, and rapid-response mechanized units, the Army has demonstrated its effectiveness
+            on battlefields stretching from the mineral-rich mountains of Lothal to the treacherous jungle floors
+            of Felucia. No terrain is too hostile, no climate too extreme, no enemy too entrenched.
+        </p>
+
+        <p class="about-text">
+            Imperial Army soldiers undergo rigorous training at fortified facilities across the Core Worlds and
+            Mid Rim, forging civilians into disciplined warriors capable of operating in any environment and any
+            combat scenario. Equipped with the finest weapons and battlefield hardware produced by the Empire's
+            vast industrial complex — from the blaster rifles of BlasTech to the AT-AT walkers of Kuat Drive
+            Yards — Army personnel represent the Emperor's will made manifest on the ground. When an Imperial
+            Army division arrives, the conflict ends. The question is never whether the Empire will prevail; it
+            is only how quickly the opposition will recognize the inevitability of their situation.
+        </p>
+
+        <div class="about-section-cta">
+            <p class="about-section-cta-text">
+                Do you have what it takes to march under the Imperial banner across any battlefield, any world,
+                in any conditions? Boots on the ground win wars. The Imperial Army is where that starts.
+            </p>
+            <a href="/Military/Applications" class="button btn-section-enlist">Join the Imperial Army</a>
+        </div>
+
+        @* ── Section 4 ── *@
+        <div class="about-divider"></div>
+        <h2 class="about-heading">The Imperial Navy</h2>
+
+        <p class="about-text">
+            Above the clouds and beyond the atmosphere, the Imperial Navy commands the stars. Anchored by the
+            legendary Imperial-class Star Destroyers — over one mile of pure military might, carrying more than
+            nine thousand troops, dozens of turbolaser batteries, and an entire starfighter complement — the Navy
+            is the Empire's most visible and most feared instrument of power. Wherever an Imperial Star Destroyer
+            maintains orbital position, order follows without question.
+        </p>
+
+        <p class="about-text">
+            The Navy encompasses everything from nimble TIE squadrons that provide rapid atmospheric and space
+            superiority support, to the colossal Super Star Destroyers that serve as mobile command platforms for
+            the Empire's senior admiralty. Tens of millions of officers, technical specialists, weapons crews,
+            and support personnel maintain the fleet across thousands of active deployment zones spanning the
+            galaxy from the Core to the Unknown Regions. The Navy's true achievement lies not merely in the
+            construction of so vast a fleet — though that alone is an engineering triumph unprecedented in
+            galactic history — but in the establishment of total hyperspace dominance. No vessel travels between
+            systems without the knowledge that the long arm of the Imperial Navy can reach them anywhere, at any
+            time.
+        </p>
+
+        <div class="about-section-cta">
+            <p class="about-section-cta-text">
+                Want to pilot a TIE Fighter and rule the skies, command the bridge of a Star Destroyer,
+                or keep the galaxy's greatest warships operational? The Imperial Navy has a post for you.
+            </p>
+            <a href="/Military/Applications" class="button btn-section-enlist">Join the Imperial Navy</a>
+        </div>
+
+        @* Image Placeholder 2 – two side by side *@
+        <div class="about-img-row">
+            <div class="about-img-placeholder half">
+                <div class="about-placeholder-inner">
+                    <span class="about-placeholder-tag">Image Pending</span>
+                    <span class="about-placeholder-title">Star Destroyers in Formation Above Scarif — Naval Power Projection</span>
+                    <span class="about-placeholder-caption">Image Coming Soon</span>
+                </div>
+            </div>
+            <div class="about-img-placeholder half">
+                <div class="about-placeholder-inner">
+                    <span class="about-placeholder-tag">Image Pending</span>
+                    <span class="about-placeholder-title">Imperial Armor Division — Ground Superiority Achieved on Mimban</span>
+                    <span class="about-placeholder-caption">Image Coming Soon</span>
+                </div>
+            </div>
+        </div>
+
+        @* ── Section 5 ── *@
+        <div class="about-divider"></div>
+        <h2 class="about-heading">The Stormtrooper Corps</h2>
+
+        <p class="about-text">
+            Perhaps no symbol in the galaxy is more immediately recognized — or more appropriately respected —
+            than the white armor of the Imperial Stormtrooper. The Corps represents the Emperor's elite shock
+            infantry: highly trained, fanatically dedicated, and utterly committed to the preservation of
+            Imperial order at any cost and in any environment. They are the shield of civilization and the sword
+            of the Emperor's justice.
+        </p>
+
+        <p class="about-text">
+            The Stormtrooper Corps encompasses dozens of highly specialized units adapted for every conceivable
+            combat environment. Snowtroopers designed for arctic operations in temperatures that would incapacitate
+            unprotected soldiers within minutes. Sandtroopers hardened for desert warfare in the unforgiving wastelands
+            of the Outer Rim. Scout Troopers who serve as the forward eyes and ears of field commanders in contested
+            territory. Shore Troopers who secure the Empire's most critical coastal and island installations.
+            Death Troopers who operate in the classified shadows of Imperial Intelligence operations. Jumptroopers
+            who bring vertical superiority to any engagement. Each specialization represents a different facet of
+            the Corps' core philosophy: any environment can be conquered by a soldier who has been trained,
+            equipped, and mentally prepared to face it.
+        </p>
+
+        <div class="about-section-cta">
+            <p class="about-section-cta-text">
+                Think you have the discipline and grit to wear the armor of the Empire's most elite soldiers?
+                The Stormtrooper Corps doesn't find just anyone worthy — prove you are.
+            </p>
+            <a href="/Military/Applications" class="button btn-section-enlist">Apply to the Corps</a>
+        </div>
+
+        @* ── Section 6 ── *@
+        <div class="about-divider"></div>
+        <h2 class="about-heading">Imperial Intelligence &amp; The Security Bureau</h2>
+
+        <p class="about-text">
+            Behind every military victory lies an architecture of knowledge. Imperial Intelligence and the Imperial
+            Security Bureau represent two sides of the same essential function — ensuring that the Empire always
+            knows more than its enemies, acts before its adversaries can act, and identifies treachery before it
+            can take root. The shadow services of the Empire are its most silent defenders, and among its most
+            effective.
+        </p>
+
+        <p class="about-text">
+            No rebel cell has survived long in a system where ISB agents are actively embedded. No smuggling
+            operation has endured under the sustained scrutiny of Imperial Intelligence analysts. These are not
+            agencies of oppression, as the Rebel Alliance's propaganda would have citizens believe. They are
+            agencies of protection — the unseen hands that keep the galaxy's billions safe from the chaos that
+            terrorists and criminals would eagerly invite back into every community, every market, every home.
+        </p>
+
+        <div class="about-section-cta">
+            <p class="about-section-cta-text">
+                Have the intelligence, the discretion, and the nerve to operate where others cannot?
+                The ISB and Imperial Intelligence recruit only the most capable. Do you have what it takes
+                to serve in the shadows?
+            </p>
+            <a href="/Military/Applications" class="button btn-section-enlist">Apply to Imperial Intelligence</a>
+        </div>
+
+        @* Image Placeholder 3 – full width *@
+        <div class="about-img-placeholder">
+            <div class="about-placeholder-inner">
+                <span class="about-placeholder-tag">Image Pending &mdash; Classification Review</span>
+                <span class="about-placeholder-title">Stormtrooper Corps in Full Formation — The Emperor's Elite on Parade</span>
+                <span class="about-placeholder-caption">Image Coming Soon</span>
+            </div>
+        </div>
+
+        @* ── Closing section ── *@
+        <div class="about-divider"></div>
+        <h2 class="about-heading">Join the Empire. Defend the Galaxy.</h2>
+
+        <p class="about-text">
+            The Imperial Military is not merely an institution. It is a calling. It is the acknowledgment that
+            civilization does not sustain itself — that order must be actively maintained, that peace must be
+            constantly defended, and that there will always be those who would tear down what billions of beings
+            have built across millennia. The Empire is the answer to that threat. The Imperial Military is the
+            instrument by which that answer is delivered.
+        </p>
+
+        <p class="about-text">
+            Whether your skills lie in command, in combat, in the cockpit of a starfighter, in the engine room
+            of a Star Destroyer, in the intelligence archives of the Security Bureau, or in the field medicine
+            stations behind the front lines — the Imperial Military has a place for you. Your service matters.
+            Your loyalty matters. The Empire needs men and women of character, of conviction, and of courage.
+            It needs citizens willing to rise above the ordinary and commit themselves to something greater than
+            any single life can contain.
+        </p>
+
+        <p class="about-text">
+            The galaxy depends on those willing to defend it. The Emperor calls. Will you answer?
+        </p>
+
+        <div class="about-cta">
+            <a href="/Military/Applications" class="button about-enlist-btn">
+                Apply to Serve the Empire &rarr;
+            </a>
+        </div>
+
+    </div>
+
+    @* Right banner *@
+    <div class="about-banner-col">
+        <img src="~/images/banner3.jpg" class="about-banner-img" alt="" />
+    </div>
+
 </div>
